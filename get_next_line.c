@@ -88,10 +88,10 @@ static char		*newline(char **str)
 int				get_next_line(const int fd, char **line)
 {
 	char			*buf;
-	static t_gnl	*lala;
+	static t_gnl	*lstgnl;
 	t_gnl			*lst;
 
-	lst = fdreader(&lala, fd);
+	lst = fdreader(&lstgnl, fd);
 	if (fd < 0 || !line || BUFF_SIZE <= 0 || !(buf = ft_strnew(BUFF_SIZE + 1)) \
 		|| read(fd, buf, 0) == -1 || (lst->schar == NULL \
 		&& !(lst->schar = ft_strnew(0))))
